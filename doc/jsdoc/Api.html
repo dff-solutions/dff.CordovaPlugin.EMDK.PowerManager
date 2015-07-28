@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Api</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Api</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        Api
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Api"><span class="type-signature"></span>new Api<span class="signature">(feature)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Basic Api functionality.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>feature</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Sygic Navigation feature to interact with.Must be a property of <code>Sygic.ApplicationId</code>.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api.js.html">sygic-api.js</a>, <a href="sygic-api.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="appVersion"><span class="type-signature"></span>appVersion<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets the application version and build number.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api.js.html">sygic-api.js</a>, <a href="sygic-api.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="endApplication"><span class="type-signature"></span>endApplication<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Ends navigation application.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api.js.html">sygic-api.js</a>, <a href="sygic-api.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="showApplication"><span class="type-signature"></span>showApplication<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Show navigation application.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api.js.html">sygic-api.js</a>, <a href="sygic-api.js.html#line40">line 40</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="com.dff.cordova.plugins.module_sygic.html">sygic</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_itinerary.html">itinerary</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_location.html">location</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_maps.html">maps</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_navigation.html">navigation</a></li><li><a href="com.dff.cordova.plugins.sygic.module_dialog.html">dialog</a></li><li><a href="com.dff.cordova.plugins.sygic.module_info.html">info</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model.html">model</a></li><li><a href="com.dff.cordova.plugins.sygic.module_tts.html">tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api.html">com/dff/cordova/plugins/sygic/api</a></li></ul><h3>Classes</h3><ul><li><a href="Api.html">Api</a></li><li><a href="com.dff.cordova.plugins.module_sygic-Sygic.html">Sygic</a></li><li><a href="com.dff.cordova.plugins.module_sygic-SygicException.html">SygicException</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_itinerary-Itinerary.html">Itinerary</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_location-Location.html">Location</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_maps-Maps.html">Maps</a></li><li><a href="com.dff.cordova.plugins.sygic.api.module_navigation-Navigation.html">Navigation</a></li><li><a href="com.dff.cordova.plugins.sygic.module_dialog-Dialog.html">Dialog</a></li><li><a href="com.dff.cordova.plugins.sygic.module_info-Info.html">Info</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model-sygicModel.SygicAddress.html">SygicAddress</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model-sygicModel.SygicPosition.html">SygicPosition</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model-sygicModel.SygicRectangle.html">SygicRectangle</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model-sygicModel.SygicStopOffPoint.html">SygicStopOffPoint</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model-sygicModel.SygicWayPoint.html">SygicWayPoint</a></li><li><a href="com.dff.cordova.plugins.sygic.module_tts-Tts.html">Tts</a></li></ul><h3>Namespaces</h3><ul><li><a href="com.dff.cordova.plugins.module_sygic-Sygic.ApplicationId.html">ApplicationId</a></li><li><a href="com.dff.cordova.plugins.module_sygic-Sygic.buttons.html">buttons</a></li><li><a href="com.dff.cordova.plugins.module_sygic-Sygic.displayOptions.html">displayOptions</a></li><li><a href="com.dff.cordova.plugins.module_sygic-Sygic.events.html">events</a></li><li><a href="com.dff.cordova.plugins.module_sygic-Sygic.model.html">model</a></li><li><a href="com.dff.cordova.plugins.sygic.module_model-sygicModel.SygicStopOffPoint.pointType.html">SygicStopOffPoint.pointType</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Mon Feb 02 2015 10:08:23 GMT+0100 (Mitteleuropäische Zeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

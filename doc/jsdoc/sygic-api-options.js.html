@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: sygic-api-options.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: sygic-api-options.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+/**
+ * Sygic Navigation plugin options functionality.
+ *
+ * @module com/dff/cordova/plugins/sygic/api/options
+ */
+
+var exec = require('cordova/exec');
+
+/**
+ * Api for Options
+ *
+ * @constructor
+ * @param {string} feature - the Sygic Options feature to interact with.
+ * Must be a property of {@link Sygic.ApplicationId}.
+ */
+function Options(feature) {
+    this.feature = feature;
+}
+
+/**
+ * Returns informations about actual GPS position.
+ *
+ * @param {function} success         - Callback if action is successful.
+ * @param {function} error           - Callback if action is not successful.
+ * @param {Object}   args            - An object containing the parameters.
+ */
+Options.prototype.setDefaultValues = function (success, error, args) {
+    exec(success, error, this.feature, "setDefaultValues", [args]);
+};
+
+/**
+ * Change application Options.
+ *
+ * @param {function} success            - Callback if action is successful.
+ * @param {function} error              - Callback if action is not successful.
+ * @param {Object}   args               - An object containing the parameters.
+ * @param {Number}   args.background    - Display option for action.
+ * @param {string}   args.homeLocation  - Sets name of home position.
+ * @param {string}   args.language      - Sets a language based on assignment of the form "(language).lang", e.g.
+ * @param {string}   args.voice         - Sets a name of voice based on assignment of the voice folder name, e.g.
+ * @param {string}   args.voicePerson   - Sets a name of the sound file to play on speed warning.
+ * @param {string}   args.maxSpeedSound - Sets a name of the sound file to play on speed warning.
+ * @param {Number}   args.bSoundEnabled - Flag enabling/disabling sounds.
+ * @param {Number}   args.bOperateRightHanded - Flag effecting Navigation appearance.
+ * @param {Number}   args.nVolumeMin - Represents minimum sound volume.
+ * @param {Number}   args.nVolumeMax - Represents maximum sound volume.
+ * @param {Number}   args.DistanceUnit - Flag determining distance units.
+ * @param {Number}   args.ClockFormat - Flag determining clock format.
+ * @param {Number}   args.GPSUnits - Flag determining GPSUnits format.
+ * @param {Number}   args.KeyboardType - Flag determining keyboard type.
+ * @param {Number}   args.nAvoidTollRoads - Flag determining whether Navigation avoids toll roads when computing route.
+ * @param {Number}   args.bAvoidUTurns - Flag determining whether Navigation avoids U-turns when computing route.
+ * @param {Number}   args.nPlanningSettings - Flag determining what kind of route Navigation computes.
+ * @param {Number}   args.nPlanningSettingsLimitedSpeed - Parameter determinig vehicle speed limit.
+ * @param {Number}   args.bAvoidFerries - Flag determining whether Navigation avoids ferries when computing route.
+ * @param {Number}   args.bDisableMainMenu - Flag enabling/disabling main menu.
+ * @param {Number}   args.bDisableRecompute - Flag enabling/disabling recomputing route when deviating from the route.
+ * @param {Number}   args.nETAMaximumSpeed - Estimate time arrival maximum speed.
+ * @param {Number}   args.nETAPercentageChange - Estimate time arrival percentage change.
+ * @param {Number}   args.bRadarsWarnOn - Enable speed camera warning 1 = enable; 0 = disable; -1 = get value.
+ * @param {Number}   args.bRadarsVisible - Radars visible 1 = visible; 0 = invisible; -1 = get value.
+ * @param {Number}   args.nRadarDistance - Radars warning distance (range 1..10); -1 = get value; real distance = distance * 100 (m / yd)
+ * @param {Number}   args.nRadarDistanceInCity - Radars warning distance in city (range 1..10); -1 = get value; real distance = distance * 100 (m / yd)
+ * @param {Number}   args.nSkin - Skin mode 0 = DAY; 1 = NIGHT; 2 = AUTOSKIN.
+ * @param {Number}   args.nTimeZone - Time zone in minutes.
+ * @param {Number}   args.nSpeedExceedInCity - Speed warning is triggered when the maximum allowed speed in city is exceeded by this value.
+ * @param {Number}   args.nSpeedExceed - Speed warning is triggered when the maximum allowed speed outside city is exceeded by this value.
+ * @param {Number}   args.nView - View mode 0 = 3D; 1 = 2D; 2 = 2D North up.
+ * @param {Number}   args.nSignpostDirection - Displayed signposts: 0=disabled; 1=Preffered direction; 2=All directions; -1=get value.
+ * @param {Number}   args.nSignpostSize - Displayed signposts size: 0=single line; 1=simplified; 2=full; -1=get value.
+ * @param {Number}   args.bSnapToEveryRoad - Allows position snapping to forbidden roads.
+ * @param {Number}   args.bMaxSpeedWarn - Enable acoustic speed exceeding warning 1 = enable; 0 = disable; -1 = get value.
+ * @param {Number}   args.bTTSEnabled - Selected sound is TTS.      
+ * @param {Number}   args.nVisiblePointReachDistance
+ * @param {Number}   args.nInvisiblePointReachDistance
+ * @param {Number}   args.bAllowClosedRoads
+ * @param {Number}   args.bTruckInMap - Flag determining whether a truck attributes are contained in map.
+ * @param {Number}   args.bUseTruckAtt - Use truck attributes.
+ * @param {Number}   args.nTruckMaxSpeed - Truck max speed [km/h].
+ * @param {Number}   args.nTruckWeightTotal - Gross vehicle weight [kg].
+ * @param {Number}   args.nTruckWeightAxle - Weight per axle [kg].
+ * @param {Number}   args.nTruckTandemWeight - Tandem axle weight [kg].
+ * @param {Number}   args.nTruckTridemWeight - Tridem axle weight [kg].
+ * @param {Number}   args.nTruckOtherWeight - Other weight [kg].
+ * @param {Number}   args.nTruckUnladenWeight - Unladen vehicle weight [kg].
+ * @param {Number}   args.nTruckLenght - Total vehicle length [mm].
+ * @param {Number}   args.nTruckAxleLength - Extreme axle length [mm].
+ * @param {Number}   args.nTrailerLength - Trailer Length [mm].
+ * @param {Number}   args.nTractorLength - Tractor Length [mm].
+ * @param {Number}   args.nKingpinLastAxle - Kingpin to last axle [mm].
+ * @param {Number}   args.nKingpinLastTandem - Kingpin to middle of last tandem [mm].
+ * @param {Number}   args.nKingpinEndTrailer - Kingpin to end of trailer (last trailer if applicable) [mm].
+ * @param {Number}   args.nTruckOtherLength - Other length [mm].
+ * @param {Number}   args.nTruckWidth - Vehicle width [mm].
+ * @param {Number}   args.nTruckHeight - Posted height [mm]. 
+ * @param {Number}   args.nLoadRestrictions - HAZMAT / Load restrictions.
+ * @param {SygicPosition} args.homePosition   - location ({@link module:com/dff/cordova/plugins/sygic/model~SygicPosition|SygicPosition})
+ *                                             of one point on map.
+ */
+Options.prototype.changeApplicationOptions = function (success, error, args) {
+    exec(success, error, this.feature, "changeApplicationOptions", [args]);
+};
+
+
+module.exports = Options;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic.html">com/dff/cordova/plugins/sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api.html">com/dff/cordova/plugins/sygic/api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog.html">com/dff/cordova/plugins/sygic/api/dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info.html">com/dff/cordova/plugins/sygic/api/info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary.html">com/dff/cordova/plugins/sygic/api/itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location.html">com/dff/cordova/plugins/sygic/api/location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps.html">com/dff/cordova/plugins/sygic/api/maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation.html">com/dff/cordova/plugins/sygic/api/navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_options.html">com/dff/cordova/plugins/sygic/api/options</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts.html">com/dff/cordova/plugins/sygic/api/tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model.html">com/dff/cordova/plugins/sygic/model</a></li></ul><h3>Classes</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog-Dialog.html">Dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info-Info.html">Info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary-Itinerary.html">Itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location-Location.html">Location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps-Maps.html">Maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation-Navigation.html">Navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_options-Options.html">Options</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts-Tts.html">Tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api-Api.html">Api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicAddress.html">SygicAddress</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicOptions.html">SygicOptions</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicPosition.html">SygicPosition</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicRectangle.html">SygicRectangle</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html">SygicStopOffPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicWayPoint.html">SygicWayPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic-Sygic.html">Sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic-SygicException.html">SygicException</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Tue Mar 31 2015 11:47:33 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

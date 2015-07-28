@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: sygic-api.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: sygic-api.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Basic Sygic Navigation plugin functionality.
+ *
+ * @module com/dff/cordova/plugins/sygic/api
+ */
+ 
+var exec = require('cordova/exec');
+var Dialog =     require('com.dff.cordova.plugins.sygic.api.dialog');
+var Info =       require('com.dff.cordova.plugins.sygic.api.info');
+var Itinerary =  require('com.dff.cordova.plugins.sygic.api.itinerary');
+var Location =   require('com.dff.cordova.plugins.sygic.api.location');
+var Maps =       require('com.dff.cordova.plugins.sygic.api.maps');
+var Navigation = require('com.dff.cordova.plugins.sygic.api.navigation');
+var Tts =        require('com.dff.cordova.plugins.sygic.api.tts');
+
+/**
+ * Basic Api functionality.
+ *
+ * @constructor
+ * @param {string} feature - the Sygic Navigation feature to interact with.
+ * Must be a property of {@link Sygic.ApplicationId}.
+ */
+function Api(feature) {
+    this.feature = feature;
+    this.dialog = new Dialog(this.feature);
+    this.info = new Info(this.feature);
+    this.itinerary = new Itinerary(this.feature);
+    this.location = new Location(this.feature);
+    this.maps = new Maps(this.feature);
+    this.navigation = new Navigation(this.feature);
+    this.tts = new Tts(this.feature);
+}
+
+/**
+ * Show navigation application.
+ *
+ * @param {Function} success         - Callback if action is successful.
+ * @param {Function} error           - Callback if action is not successful.
+ * @param {Object}   args            - An object containing the parameters.
+ * @param {Number}   args.background - Display option for action.
+ */
+Api.prototype.showApplication = function (success, error, args) {
+    exec(success, error, this.feature, "showApplication", [args]);
+};
+
+/**
+ * Ends navigation application. 
+ *
+ * @param {function} success         - Callback if action is successful.
+ * @param {function} error           - Callback if action is not successful.
+ * @param {Object}   args            - An object containing the parameters.
+ * @param {Number}   args.background - Display option for action.
+ */
+Api.prototype.endApplication = function (success, error, args) {
+    exec(success, error, this.feature, "endApplication", [args]);
+};
+
+/**
+ * Gets the application version and build number.
+ *
+ * @param {function} success         - Callback if action is successful.
+ * @param {function} error           - Callback if action is not successful.
+ * @param {Object}   args            - An object containing the parameters.
+ * @param {Number}   args.background - Display option for action.
+ */
+Api.prototype.appVersion = function (success, error, args) {
+    exec(success, error, this.feature, "appVersion", [args]);
+};
+
+module.exports = Api;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic.html">com/dff/cordova/plugins/sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api.html">com/dff/cordova/plugins/sygic/api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog.html">com/dff/cordova/plugins/sygic/api/dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info.html">com/dff/cordova/plugins/sygic/api/info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary.html">com/dff/cordova/plugins/sygic/api/itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location.html">com/dff/cordova/plugins/sygic/api/location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps.html">com/dff/cordova/plugins/sygic/api/maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation.html">com/dff/cordova/plugins/sygic/api/navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts.html">com/dff/cordova/plugins/sygic/api/tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model.html">com/dff/cordova/plugins/sygic/model</a></li></ul><h3>Classes</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog-Dialog.html">Dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info-Info.html">Info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary-Itinerary.html">Itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location-Location.html">Location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps-Maps.html">Maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation-Navigation.html">Navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts-Tts.html">Tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api-Api.html">Api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicAddress.html">SygicAddress</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicPosition.html">SygicPosition</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicRectangle.html">SygicRectangle</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html">SygicStopOffPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicWayPoint.html">SygicWayPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic-Sygic.html">Sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic-SygicException.html">SygicException</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Tue Feb 24 2015 08:43:23 GMT+0100 (Mitteleuropäische Zeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

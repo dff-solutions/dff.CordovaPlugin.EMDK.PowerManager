@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Options</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Options</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-com_dff_cordova_plugins_sygic_api_options.html">com/dff/cordova/plugins/sygic/api/options</a>~</span>
+        
+        Options
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Options"><span class="type-signature"></span>new Options<span class="signature">(feature)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Api for Options
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>feature</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Sygic Options feature to interact with.Must be a property of <code>Sygic.ApplicationId</code>.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-options.js.html">sygic-api-options.js</a>, <a href="sygic-api-options.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="changeApplicationOptions"><span class="type-signature"></span>changeApplicationOptions<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Change application Options.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.homeLocation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Sets name of home position.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.language</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Sets a language based on assignment of the form "(language).lang", e.g.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.voice</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Sets a name of voice based on assignment of the voice folder name, e.g.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.voicePerson</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Sets a name of the sound file to play on speed warning.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.maxSpeedSound</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Sets a name of the sound file to play on speed warning.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bSoundEnabled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag enabling/disabling sounds.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bOperateRightHanded</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag effecting Navigation appearance.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nVolumeMin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Represents minimum sound volume.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nVolumeMax</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Represents maximum sound volume.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.DistanceUnit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining distance units.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.ClockFormat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining clock format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.GPSUnits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining GPSUnits format.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.KeyboardType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining keyboard type.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nAvoidTollRoads</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining whether Navigation avoids toll roads when computing route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bAvoidUTurns</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining whether Navigation avoids U-turns when computing route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nPlanningSettings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining what kind of route Navigation computes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nPlanningSettingsLimitedSpeed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Parameter determinig vehicle speed limit.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bAvoidFerries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining whether Navigation avoids ferries when computing route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bDisableMainMenu</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag enabling/disabling main menu.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bDisableRecompute</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag enabling/disabling recomputing route when deviating from the route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nETAMaximumSpeed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Estimate time arrival maximum speed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nETAPercentageChange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Estimate time arrival percentage change.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bRadarsWarnOn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Enable speed camera warning 1 = enable; 0 = disable; -1 = get value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bRadarsVisible</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Radars visible 1 = visible; 0 = invisible; -1 = get value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nRadarDistance</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Radars warning distance (range 1..10); -1 = get value; real distance = distance * 100 (m / yd)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nRadarDistanceInCity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Radars warning distance in city (range 1..10); -1 = get value; real distance = distance * 100 (m / yd)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nSkin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Skin mode 0 = DAY; 1 = NIGHT; 2 = AUTOSKIN.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTimeZone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Time zone in minutes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nSpeedExceedInCity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Speed warning is triggered when the maximum allowed speed in city is exceeded by this value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nSpeedExceed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Speed warning is triggered when the maximum allowed speed outside city is exceeded by this value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nView</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">View mode 0 = 3D; 1 = 2D; 2 = 2D North up.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nSignpostDirection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displayed signposts: 0=disabled; 1=Preffered direction; 2=All directions; -1=get value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nSignpostSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displayed signposts size: 0=single line; 1=simplified; 2=full; -1=get value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bSnapToEveryRoad</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Allows position snapping to forbidden roads.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bMaxSpeedWarn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Enable acoustic speed exceeding warning 1 = enable; 0 = disable; -1 = get value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bTTSEnabled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Selected sound is TTS.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nVisiblePointReachDistance</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nInvisiblePointReachDistance</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bAllowClosedRoads</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bTruckInMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag determining whether a truck attributes are contained in map.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.bUseTruckAtt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Use truck attributes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckMaxSpeed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Truck max speed [km/h].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckWeightTotal</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Gross vehicle weight [kg].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckWeightAxle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Weight per axle [kg].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckTandemWeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Tandem axle weight [kg].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckTridemWeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Tridem axle weight [kg].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckOtherWeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Other weight [kg].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckUnladenWeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Unladen vehicle weight [kg].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckLenght</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Total vehicle length [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckAxleLength</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Extreme axle length [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTrailerLength</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Trailer Length [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTractorLength</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Tractor Length [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nKingpinLastAxle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Kingpin to last axle [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nKingpinLastTandem</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Kingpin to middle of last tandem [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nKingpinEndTrailer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Kingpin to end of trailer (last trailer if applicable) [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckOtherLength</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Other length [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckWidth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Vehicle width [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nTruckHeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Posted height [mm].</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.nLoadRestrictions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">HAZMAT / Load restrictions.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.homePosition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">SygicPosition</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">location (<a href="module-com_dff_cordova_plugins_sygic_model-SygicPosition.html"><code>SygicPosition</code></a>)                                            of one point on map.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-options.js.html">sygic-api-options.js</a>, <a href="sygic-api-options.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setDefaultValues"><span class="type-signature"></span>setDefaultValues<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns informations about actual GPS position.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-options.js.html">sygic-api-options.js</a>, <a href="sygic-api-options.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic.html">com/dff/cordova/plugins/sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api.html">com/dff/cordova/plugins/sygic/api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog.html">com/dff/cordova/plugins/sygic/api/dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info.html">com/dff/cordova/plugins/sygic/api/info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary.html">com/dff/cordova/plugins/sygic/api/itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location.html">com/dff/cordova/plugins/sygic/api/location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps.html">com/dff/cordova/plugins/sygic/api/maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation.html">com/dff/cordova/plugins/sygic/api/navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_options.html">com/dff/cordova/plugins/sygic/api/options</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts.html">com/dff/cordova/plugins/sygic/api/tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model.html">com/dff/cordova/plugins/sygic/model</a></li></ul><h3>Classes</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog-Dialog.html">Dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info-Info.html">Info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary-Itinerary.html">Itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location-Location.html">Location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps-Maps.html">Maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation-Navigation.html">Navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_options-Options.html">Options</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts-Tts.html">Tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api-Api.html">Api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicAddress.html">SygicAddress</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicOptions.html">SygicOptions</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicPosition.html">SygicPosition</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicRectangle.html">SygicRectangle</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html">SygicStopOffPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicWayPoint.html">SygicWayPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic-Sygic.html">Sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic-SygicException.html">SygicException</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Tue Mar 31 2015 11:47:33 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

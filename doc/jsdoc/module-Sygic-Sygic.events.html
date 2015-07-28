@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: events</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: events</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-Sygic.html">Sygic</a><a href="module-Sygic-Sygic.html">~Sygic</a>.</span>
+        
+        events
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Events</div>
+        
+
+        
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>APP_STARTED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1010 Event occurs when navigation has started.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ROUTE_USERCANCEL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1101 Event occurs when user destroys route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>WAIPOINT_VISITED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1102 Event occurs when a waipoint is visited.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ROUTE_FINISH</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1103 Event occurs when the end of the route is reached.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ROUTE_COMPUTED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1105 Event occurs when new route is computed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>OFF_ROUTE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1106 Event occurs when a route is recomputed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>APP_EXIT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1100 Event occurs when application exits or internal error occurs.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MAIN_MENU</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1150 Event occurs when user click on the navigation window.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CONTEXT_MENU</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1151 Event occurs when user show context menu.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>EXIT_MENU</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1152 Event occurs when return to navigation from any menu.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CUSTOM_MENU</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1153 Event occurs after the user clicks on some custom button in the menu.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CHANGE_LANGUAGE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1160 Event occurs when user change language of Drive application.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CHANGE_ORIENTATION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1161 Event occurs when user change screen orientation of Drive application.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>RADAR_WARNING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1170 Event occurs when a radar warning is invoked.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>POI_WARNING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1171 Event occurs when a poi warning is invoked.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GEOFENCE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1172</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>RESTRICTED_ROAD</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1173 Event occurs when on a restricted road.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>BORDER_CROSSING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1180 Event occurs when the border is crossed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SPEED_EXCEEDING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1181 Event occurs when the speed is exceeded.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>BITMAP_CLICK</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1190 Event occurs when the bitmap is clicked.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>POI_CLICK</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">1191 Event occurs when the poi is clicked.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic.js.html">sygic.js</a>, <a href="sygic.js.html#line565">line 565</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Sygic.html">Sygic</a></li><li><a href="Sygic.module_Tts.html">Tts</a></li></ul><h3>Classes</h3><ul><li><a href="module-Sygic-Api.html">Api</a></li><li><a href="module-Sygic-ApiDialog.html">ApiDialog</a></li><li><a href="module-Sygic-ApiInfo.html">ApiInfo</a></li><li><a href="module-Sygic-ApiItinerary.html">ApiItinerary</a></li><li><a href="module-Sygic-ApiLocation.html">ApiLocation</a></li><li><a href="module-Sygic-ApiMaps.html">ApiMaps</a></li><li><a href="module-Sygic-ApiNavigation.html">ApiNavigation</a></li><li><a href="module-Sygic-Sygic.html">Sygic</a></li><li><a href="module-Sygic-Sygic.model.SygicAddress.html">SygicAddress</a></li><li><a href="module-Sygic-Sygic.model.SygicPosition.html">SygicPosition</a></li><li><a href="module-Sygic-Sygic.model.SygicRectangle.html">SygicRectangle</a></li><li><a href="module-Sygic-Sygic.model.SygicStopOffPoint.html">SygicStopOffPoint</a></li><li><a href="module-Sygic-Sygic.model.SygicWayPoint.html">SygicWayPoint</a></li><li><a href="module-Sygic-SygicException.html">SygicException</a></li><li><a href="Sygic.module_Tts-Tts.html">Tts</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-Sygic-Sygic.ApplicationId.html">ApplicationId</a></li><li><a href="module-Sygic-Sygic.buttons.html">buttons</a></li><li><a href="module-Sygic-Sygic.displayOptions.html">displayOptions</a></li><li><a href="module-Sygic-Sygic.events.html">events</a></li><li><a href="module-Sygic-Sygic.model.html">model</a></li><li><a href="module-Sygic-Sygic.model.SygicStopOffPoint.pointType.html">model.SygicStopOffPoint.pointType</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Thu Jan 29 2015 13:05:48 GMT+0100 (Mitteleuropäische Zeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

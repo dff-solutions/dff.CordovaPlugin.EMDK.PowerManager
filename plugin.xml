@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" 
+    id="com.dff.cordova.plugins.emdk.powermanager"
+    version="0.0.1">
+
+    <name>EMDKPowerManager</name>
+    <description>EMDKPowerManager Plugin</description>
+    <author>dff solutions</author>
+    <keywords>phonegap,cordova,EMDK,PowerManager,dff</keywords>
+
+    <js-module src="www/emdkpowermanager.js" name="emdkpowermanager">
+        <clobbers target="EMDKPowerManager" />
+    </js-module>
+ 
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="EMDKPowerManager">
+                <param name="android-package" value="com.dff.cordova.plugin.emdk.powermanager.EMDKPowerManagerPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="com.symbol.emdk.permission.EMDK"/>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <uses-library android:name="com.symbol.emdk"/>
+        </config-file>
+        
+        <framework src="emdkpowermanager.gradle" custom="true" type="gradleReference" />
+        <resource-file src="assets/EMDKConfig.xml" target="assets/EMDKConfig.xml" />
+		<source-file src="libs/com.symbol.emdk.jar" target-dir="systemlibs" />
+        <source-file src="src/android/com/dff/cordova/plugin/emdk/powermanager/EMDKPowerManagerPlugin.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager" />
+        
+        
+  
+     </platform>
+</plugin>

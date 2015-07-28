@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Itinerary</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Itinerary</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-com_dff_cordova_plugins_sygic_api_itinerary.html">com/dff/cordova/plugins/sygic/api/itinerary</a>~</span>
+        
+        Itinerary
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Itinerary"><span class="type-signature"></span>new Itinerary<span class="signature">(feature)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Api for Itinerary
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>feature</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Sygic Navigation feature to interact with.Must be a property of <code>Sygic.ApplicationId</code>.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="addEntryToItinerary"><span class="type-signature"></span>addEntryToItinerary<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds new waypoint to taken itinerary.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.itineraryName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of itinerary where new item will be added.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.stopOffPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">StopOffPoint</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html"><code>SygicStopOffPoint</code></a>                                         containing information about the waypoint to be added.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Position where waypoint will be inserted.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html"><code>SygicStopOffPoint</code></a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addItinerary"><span class="type-signature"></span>addItinerary<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates itinerary and fills it with given waypoints.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.itineraryName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of itinerary that will be created.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.stopOffPoints</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;StopOffPoint></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">List of <a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html"><code>SygicStopOffPoint</code></a>                                             of itinerary.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line51">line 51</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html"><code>SygicStopOffPoint</code></a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="deleteEntryInItinerary"><span class="type-signature"></span>deleteEntryInItinerary<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Deletes waypoint from itinerary at given position.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.itineraryName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of itinerary where item will be removed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Position of waypoint that will be removed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line65">line 65</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="deleteItinerary"><span class="type-signature"></span>deleteItinerary<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Deletes given itinerary.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.itineraryName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of itinerary to be removed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getItineraryList"><span class="type-signature"></span>getItineraryList<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns list of waypoints in itinerary.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.itineraryName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of itinerary from which waypoints will be retrieved.
+                                          If the name of itinerary is "default",
+                                          function returns the list of waypoints from current route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line93">line 93</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setRoute"><span class="type-signature"></span>setRoute<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Computes route based on taken itinerary.If Navigation has valid GPS signal it starts navigation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.itineraryName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of the itinerary which will be used to compute route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.flags</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Parameter flags determines route computing properties.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="skipNextWayPoint"><span class="type-signature"></span>skipNextWayPoint<span class="signature">(success, error, args)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Skips the next waypoint.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>success</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback if action is not successful.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args.background</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Display option for action.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sygic-api-itinerary.js.html">sygic-api-itinerary.js</a>, <a href="sygic-api-itinerary.js.html#line120">line 120</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic.html">com/dff/cordova/plugins/sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api.html">com/dff/cordova/plugins/sygic/api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog.html">com/dff/cordova/plugins/sygic/api/dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info.html">com/dff/cordova/plugins/sygic/api/info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary.html">com/dff/cordova/plugins/sygic/api/itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location.html">com/dff/cordova/plugins/sygic/api/location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps.html">com/dff/cordova/plugins/sygic/api/maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation.html">com/dff/cordova/plugins/sygic/api/navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts.html">com/dff/cordova/plugins/sygic/api/tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model.html">com/dff/cordova/plugins/sygic/model</a></li></ul><h3>Classes</h3><ul><li><a href="module-com_dff_cordova_plugins_sygic_api_dialog-Dialog.html">Dialog</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_info-Info.html">Info</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_itinerary-Itinerary.html">Itinerary</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_location-Location.html">Location</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_maps-Maps.html">Maps</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_navigation-Navigation.html">Navigation</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api_tts-Tts.html">Tts</a></li><li><a href="module-com_dff_cordova_plugins_sygic_api-Api.html">Api</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicAddress.html">SygicAddress</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicPosition.html">SygicPosition</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicRectangle.html">SygicRectangle</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicStopOffPoint.html">SygicStopOffPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic_model-SygicWayPoint.html">SygicWayPoint</a></li><li><a href="module-com_dff_cordova_plugins_sygic-Sygic.html">Sygic</a></li><li><a href="module-com_dff_cordova_plugins_sygic-SygicException.html">SygicException</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Tue Feb 24 2015 08:43:23 GMT+0100 (Mitteleuropäische Zeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

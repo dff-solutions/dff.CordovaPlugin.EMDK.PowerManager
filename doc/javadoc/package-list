@@ -1,0 +1,15 @@
+com.dff.cordova.plugin.sygic
+com.dff.cordova.plugin.sygic.action
+com.dff.cordova.plugin.sygic.action.api
+com.dff.cordova.plugin.sygic.action.api.dialog
+com.dff.cordova.plugin.sygic.action.api.info
+com.dff.cordova.plugin.sygic.action.api.itinerary
+com.dff.cordova.plugin.sygic.action.api.location
+com.dff.cordova.plugin.sygic.action.api.maps
+com.dff.cordova.plugin.sygic.action.api.navigation
+com.dff.cordova.plugin.sygic.action.api.tts
+com.dff.sygic
+com.dff.sygic.action
+com.dff.sygic.event
+com.dff.sygic.model
+com.dff.sygic.model.json

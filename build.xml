@@ -1,0 +1,40 @@
+<project>
+  <description>
+      PowerManager Cordova Plugin
+  </description>
+
+  <property name="source.dir" location="src"/>
+  <property name="build.dir" location="bin"/>
+  <property name="doc.dir" location="doc"/>
+  <property name="main.class" value="proj1.Proj1"/>
+
+  <target name="init" description="setup project directories">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${doc.dir}"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile java sources">
+    <javac srcdir="${source.dir}" destdir="${build.dir}"/>
+  </target>
+
+  <target name="run" description="run the project">
+    <java dir="${build.dir}" classname="${main.class}" fork="yes">
+        <arg line="${args}"/>
+    </java>
+  </target>
+
+  <target name="clean" description="tidy up the workspace">
+    <delete dir="${build.dir}"/>
+    <delete dir="${doc.dir}"/>
+    <delete>
+      <fileset defaultexcludes="no" dir="${source.dir}" includes="**/*~"/>
+    </delete>
+  </target>
+
+  <!-- Generate javadocs for current project into ${doc.dir} -->
+  <target name="doc" depends="init" description="generate documentation">
+    <javadoc sourcepath="${source.dir}/android"
+             destdir="${doc.dir}/javadoc" />
+  </target>
+
+</project>
