@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src/android"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="/opt/android-sdk-linux/platforms/android-22/android.jar"/>
-	<classpathentry kind="lib" path="/home/frank/git/Hermes-App/hermesApp/platforms/android/CordovaLib/build/intermediates/bundles/debug/classes.jar"/>
-	<classpathentry kind="lib" path="/home/frank/git/dff.CordovaPlugin.EMDK.PowerManager/libs/com.symbol.emdk.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fkoenigstein/AppData/Local/Android/sdk/add-ons/addon-symbol-emdk_v3.1_API-19/libs/com.symbol.emdk.jar"/>
+	<classpathentry kind="lib" path="C:/git/Hermes-App/hermesApp/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fkoenigstein/AppData/Local/Android/sdk/platforms/android-19/android.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

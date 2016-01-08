@@ -12,10 +12,13 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
+import android.util.Log;
 import android.util.Xml;
 
-import com.symbol.emdk.*;
+import com.symbol.emdk.EMDKManager;
 import com.symbol.emdk.EMDKManager.EMDKListener;
+import com.symbol.emdk.EMDKResults;
+import com.symbol.emdk.ProfileManager;
 
 /**
  * This plugin implements an interface to the PowerManager Android API.
@@ -63,9 +66,6 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 	// contains the error description for parm or characteristic error.
 	private String errorDescription = "";
 	
-	// contains status of the profile operation  
-	private String status;
-
 	/**
 	 * Called after plugin construction and fields have been initialized. Prefer
 	 * to use pluginInitialize instead since there is no value in having
@@ -83,6 +83,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 		try {
 			// The EMDKManager object will be created and returned in the callback.
 			EMDKResults results = EMDKManager.getEMDKManager(appContext, this);
+			LOG.d(this.getClass().getName(), "EMDKResult", EMDKResultToJson(results));
 			
 			// Check the return status of getEMDKManager
 			if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
@@ -125,6 +126,13 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 			EMDKResults results = profileManager.processProfile(profileName,
 					ProfileManager.PROFILE_FLAG.SET, modifyData);
 
+			try {
+				Log.i(this.getClass().getName(), "EMDKResult: " + EMDKResultToJson(results));
+			}
+			catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
 			if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
 				// Method call to handle EMDKResult
 				handleEMDKResult(results);
@@ -133,6 +141,57 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 						+ profileName);
 			}
 		}
+	}
+	
+	private JSONObject EMDKResultToJson(EMDKResults results) throws JSONException {
+		JSONObject jsonResult = new JSONObject();
+		String status = "";
+		
+		switch (results.statusCode) {
+		case SUCCESS:
+            status = "SUCCESS";
+            break;
+        case FAILURE:
+            status = "FAILURE";
+            break;
+        case CHECK_XML:
+            status = "CHECK_XML";
+            break;
+        case EMDK_NOT_OPENED:
+            status = "EMDK_NOT_OPENED";
+            break;
+        case EMPTY_PROFILENAME:
+            status = "EMPTY_PROFILENAME";
+            break;
+        case NO_DATA_LISTENER:
+            status = "NO_DATA_LISTENER";
+            break;
+        case NULL_POINTER:
+            status = "NULL_POINTER";
+            break;
+        case PREVIOUS_REQUEST_IN_PROGRESS:
+            status = "PREVIOUS_REQUEST_IN_PROGRESS";
+            break;
+        case PROCESSING:
+            status = "PROCESSING";
+            break;
+        case UNKNOWN:
+            status = "UNKNOWN";
+            break;
+        default:
+            status = "UNKNOWN";
+            break;
+		}
+		
+		jsonResult.put("status", status);
+		jsonResult.put("statusCode", results.statusCode);		
+		jsonResult.put("statusString", results.getStatusString());
+		jsonResult.put("statusDocument", results.getStatusDocument());
+		jsonResult.put("extendedStatusMessage", results.getExtendedStatusMessage());
+		jsonResult.put("successFeaturesCount", results.getSuccessFeaturesCount());
+		jsonResult.put("totalFeaturesCount", results.getTotalFeaturesCount());
+		
+		return jsonResult;
 	}
 
 	// Method to handle EMDKResult by extracting response and parsing it
@@ -170,7 +229,6 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 					// Get Status, error name and description in case of
 					// parm-error
 					if (name.equals("parm-error")) {
-						status = "Failure";
 						errorName = myParser.getAttributeValue(null, "name");
 						errorDescription = myParser.getAttributeValue(null,
 								"desc");
@@ -178,7 +236,6 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 						// Get Status, error type and description in case of
 						// parm-error
 					} else if (name.equals("characteristic-error")) {
-						status = "Failure";
 						errorType = myParser.getAttributeValue(null, "type");
 						errorDescription = myParser.getAttributeValue(null,
 								"desc");
@@ -196,7 +253,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 
 	// Method that applies the modified settings to the EMDK Profile based on
 	// user selected options of Power Manager feature.
-	private void modifyProfile_XMLString() {
+	private void modifyProfile_XMLString(CallbackContext callbackContext) throws JSONException {
 		if (profileManager != null) {
 			// Prepare XML to modify the existing profile
 			String[] modifyData = new String[1];
@@ -215,18 +272,27 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 			// Call process profile to modify the profile of specified profile
 			// name
 			EMDKResults results = profileManager.processProfile(profileName,
-					ProfileManager.PROFILE_FLAG.SET, modifyData);
+					ProfileManager.PROFILE_FLAG.SET, modifyData);			
+
+			JSONObject jsonResult = EMDKResultToJson(results);
+			
+			Log.i(this.getClass().getName(), "EMDKResult: " + EMDKResultToJson(results));
 	
 			if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
 				// Method call to handle EMDKResult
 				handleEMDKResult(results);
-			} else {
+			}
+			else {
 				LOG.e(this.getClass().getName(), "Failed to apply profile... "
 						+ profileName);
 			}
+			
+			callbackContext.success(jsonResult);
 		}
 		else {
-			LOG.e(this.getClass().getName(), "profile manager not instantiated");
+			String msg = "profile manager not instantiated";
+			LOG.e(this.getClass().getName(), msg);
+			callbackContext.error(msg);
 		}
 	}
 
@@ -256,7 +322,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 			// this.powerManager.reboot(reason);
 			value = OPTION_REBOOT; // 4 - Perform Reset/Reboot (Reboot Device)
 			// Apply Settings selected by user
-			modifyProfile_XMLString();
+			modifyProfile_XMLString(callbackContext);
 
 			return true;
 		}

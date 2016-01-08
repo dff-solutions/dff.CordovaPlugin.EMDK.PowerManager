@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><!--This is an auto generated document. Changes to this document may cause incorrect behavior.--><wap-provisioningdoc>
-<characteristic type="ProfileInfo">
-<parm name="created_wizard_version" value="3.1.20"/>
-</characteristic>
-<characteristic type="Profile">
-<parm name="ProfileName" value="PowerManagerProfile"/>
-<parm name="ModifiedDate" value="2015-06-22 09:30:09"/>
-<parm name="TargetSystemVersion" value="4.4"/>
-<characteristic type="PowerMgr" version="4.2">
-<parm name="emdk_name" value="DffProfileManager"/>
-</characteristic>
-</characteristic>
+<?xml version="1.0" encoding="UTF-8"?><!--This is an auto generated document. Changes to this document may cause incorrect behavior.-->
+<wap-provisioningdoc>
+    <characteristic type="ProfileInfo">
+        <parm name="created_wizard_version" value="3.1.20"/>
+    </characteristic>
+    <characteristic type="Profile">
+        <parm name="ProfileName" value="PowerManagerProfile"/>
+        <parm name="ModifiedDate" value="2016-01-08 13:22:34"/>
+        <parm name="TargetSystemVersion" value="4.4"/>
+        <characteristic type="PowerMgr" version="4.2">
+           <parm name="emdk_name" value="DffProfileManager"/>
+           <parm name="ResetAction" value="0" />
+        </characteristic>
+    </characteristic>
 </wap-provisioningdoc>
