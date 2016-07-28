@@ -253,7 +253,7 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
 				event = myParser.next();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
 		}
 	}
 
