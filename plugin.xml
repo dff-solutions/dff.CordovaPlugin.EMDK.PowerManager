@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" 
     id="com.dff.cordova.plugins.emdk.powermanager"
-    version="0.0.1">
+    version="0.0.3">
 
     <name>EMDKPowerManager</name>
     <description>EMDKPowerManager Plugin</description>
@@ -11,6 +11,8 @@
     <js-module src="www/emdkpowermanager.js" name="emdkpowermanager">
         <clobbers target="EMDKPowerManager" />
     </js-module>
+    
+    <dependency id="com.dff.cordova.plugins.common" url="https://github.com/dff-solutions/dff.CordovaPlugin.Common.git" />
  
     <!-- android -->
     <platform name="android">

@@ -3,29 +3,29 @@ package com.dff.cordova.plugin.emdk.powermanager;
 import java.io.StringReader;
 
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.LOG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.content.Context;
-import android.util.Log;
-import android.util.Xml;
-
+import com.dff.cordova.plugin.common.CommonPlugin;
+import com.dff.cordova.plugin.common.log.CordovaPluginLog;
 import com.symbol.emdk.EMDKManager;
 import com.symbol.emdk.EMDKManager.EMDKListener;
 import com.symbol.emdk.EMDKResults;
 import com.symbol.emdk.ProfileManager;
+
+import android.content.Context;
+import android.util.Xml;
 
 /**
  * This plugin implements an interface to the PowerManager Android API.
  *
  * @author dff solutions
  */
-public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListener {
+public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener {
+	public static final String LOG_TAG = "com.dff.cordova.plugin.emdk.powermanager.EMDKPowerManagerPlugin";
 	private Context appContext;
 
 	// Assign the profile name used in EMDKConfig.xml
@@ -66,6 +66,10 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 	// contains the error description for parm or characteristic error.
 	private String errorDescription = "";
 	
+	public EMDKPowerManagerPlugin() {
+		super(LOG_TAG);
+	}
+	
 	/**
 	 * Called after plugin construction and fields have been initialized. Prefer
 	 * to use pluginInitialize instead since there is no value in having
@@ -75,39 +79,41 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 	 * @param webView
 	 */
 	public void pluginInitialize() {
-		LOG.i(this.getClass().getName(), "Initialize PowerManager");
-
 		super.pluginInitialize();
 		this.appContext = this.cordova.getActivity().getApplicationContext();
 
 		try {
 			// The EMDKManager object will be created and returned in the callback.
 			EMDKResults results = EMDKManager.getEMDKManager(appContext, this);
-			LOG.d(this.getClass().getName(), "EMDKResult", EMDKResultToJson(results));
+			CordovaPluginLog.d(LOG_TAG, "EMDKResult: " + EMDKResultToJson(results));
 			
 			// Check the return status of getEMDKManager
 			if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
-				LOG.i(this.getClass().getName(), "EMDKManager object creation success");
+				CordovaPluginLog.i(LOG_TAG, "EMDKManager object creation success");
 			}
 			else {
-				LOG.e(this.getClass().getName(), "EMDKManager object creation failed");
+				CordovaPluginLog.e(LOG_TAG, "EMDKManager object creation failed");
 			}
 		}
 		catch (Exception e) {
-			LOG.e(this.getClass().getName(), e.getMessage(), e);
+			CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
 		}
 	}
 
 	@Override
 	public void onClosed() {
-		emdkManager.release();
-
+		if (emdkManager != null) {
+			emdkManager.release();			
+		}		
 	}
 
+	@Override
 	public void onDestroy() {
 		super.onDestroy();
 		// Clean up the objects created by EMDK manager
-		emdkManager.release();
+		if (emdkManager != null) {
+			emdkManager.release();			
+		}
 	}
 
 	@Override
@@ -127,7 +133,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 					ProfileManager.PROFILE_FLAG.SET, modifyData);
 
 			try {
-				Log.i(this.getClass().getName(), "EMDKResult: " + EMDKResultToJson(results));
+				CordovaPluginLog.i(LOG_TAG, "EMDKResult: " + EMDKResultToJson(results));
 			}
 			catch (JSONException e) {
 				e.printStackTrace();
@@ -137,7 +143,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 				// Method call to handle EMDKResult
 				handleEMDKResult(results);
 			} else {
-				LOG.e(this.getClass().getName(), "Failed to apply profile... "
+				CordovaPluginLog.e(LOG_TAG, "Failed to apply profile... "
 						+ profileName);
 			}
 		}
@@ -209,11 +215,11 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 			parseXML(parser);
 		} catch (XmlPullParserException e) {
 			e.printStackTrace();
-			LOG.e(this.getClass().getName(), e.toString());
+			CordovaPluginLog.e(LOG_TAG, e.toString());
 		}
 
 		// Method call to display results in a dialog
-		LOG.e(this.getClass().getName(), "Name: " + errorName + "; Type: "
+		CordovaPluginLog.e(LOG_TAG, "Name: " + errorName + "; Type: "
 				+ errorType + "; desc: " + errorDescription);
 	}
 
@@ -276,14 +282,14 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 
 			JSONObject jsonResult = EMDKResultToJson(results);
 			
-			Log.i(this.getClass().getName(), "EMDKResult: " + EMDKResultToJson(results));
+			CordovaPluginLog.i(LOG_TAG, "EMDKResult: " + EMDKResultToJson(results));
 	
 			if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
 				// Method call to handle EMDKResult
 				handleEMDKResult(results);
 			}
 			else {
-				LOG.e(this.getClass().getName(), "Failed to apply profile... "
+				CordovaPluginLog.e(LOG_TAG, "Failed to apply profile... "
 						+ profileName);
 			}
 			
@@ -291,7 +297,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 		}
 		else {
 			String msg = "profile manager not instantiated";
-			LOG.e(this.getClass().getName(), msg);
+			CordovaPluginLog.e(LOG_TAG, msg);
 			callbackContext.error(msg);
 		}
 	}
@@ -314,7 +320,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 	public boolean execute(String action, JSONArray args,
 			final CallbackContext callbackContext) throws JSONException {
 
-		LOG.i(this.getClass().getName(), "call for action: " + action
+		CordovaPluginLog.i(LOG_TAG, "call for action: " + action
 				+ "; parms: " + args);
 
 		if (action.equals("reboot")) {
@@ -327,6 +333,6 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
 			return true;
 		}
 
-		return false;
+		return super.execute(action, args, callbackContext);
 	}
 }
