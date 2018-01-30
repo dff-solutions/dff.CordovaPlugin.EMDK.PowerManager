@@ -1,6 +1,6 @@
 {
   "name": "dff.CordovaPlugin.Sygic",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Codova Plugin for PowerManager",
   "main": "www/sygic.js",
   "directories": {
