@@ -31,6 +31,9 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
     public static final int OPTION_FACTORY_RESET = 6;
     public static final int OPTION_FULL_DDEVICE_WIPE = 7;
     public static final int OPTION_OS_UPDATE = 8;
+    public static final int WWAN_DO_NOT_CHANGE = 0;
+    public static final int WWAN_ON = 1;
+    public static final int WWAN_OFF = 2;
     private Context appContext;
     // Assign the profile name used in EMDKConfig.xml
     private String profileName = "PowerManagerProfile";
@@ -49,6 +52,12 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
     // 7 -> Full Device Wipe
     // 8 -> OS Update
     private int reboot_value = OPTION_DO_NOTHING;
+    
+    // Initial Value of the wwan is do not change (0)
+    // 0 -> Do not change
+    // 1 -> Turn on
+    // 2 -> Turn off
+    private int wwan_value = WWAN_DO_NOT_CHANGE;
 
     // Contains the parm-error name (sub-feature that has error)
     private String errorName = "";
@@ -249,21 +258,35 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
 
     // Method that applies the modified settings to the EMDK Profile based on
     // user selected options of Power Manager feature.
-    private void modifyProfile_XMLString(CallbackContext callbackContext) throws JSONException {
+    private void modifyProfile_XMLString(CallbackContext callbackContext, String action) throws JSONException {
         if (profileManager != null) {
             // Prepare XML to modify the existing profile
             String[] modifyData = new String[1];
-            // Modified XML input for Sleep and Reboot feature based on user
-            // selected options of radio button
-            // reboot_value = 1 -> Sleep Mode
-            // reboot_value = 4 -> Reboot
-            modifyData[0] = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+            if(action.equals("reboot")) {
+                // Modified XML input for Sleep and Reboot feature based on user
+                // selected options of radio button
+                // reboot_value = 1 -> Sleep Mode
+                // reboot_value = 4 -> Reboot
+                modifyData[0] = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
                     + "<characteristic type=\"Profile\">"
                     + "<parm name=\"ProfileName\" value=\"PowerManagerProfile\"/>"
                     + "<characteristic type=\"PowerMgr\">"
                     + "<parm name=\"ResetAction\" value=\"" + reboot_value + "\"/>"
                     + "</characteristic>"
                     + "</characteristic>";
+            } else if(action.equals("wwanTurnOn") || action.equals("wwanTurnOff")) {
+                // Modified XML
+                // wwan_value = 1 -> Turn on
+                // wwan_value = 2 -> Turn off
+                modifyData[0] = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+                    + "<characteristic type=\"Profile\">"
+                    + "<parm name=\"ProfileName\" value=\"PowerManagerProfile\"/>"
+                    + "<characteristic type=\"WirelessMgr\">"
+                    + "<parm name=\"WWANState\" value=\"" + wwan_value + "\"/>"
+                    + "</characteristic>"
+                    + "</characteristic>";
+            }
+            
 
             // Call process profile to modify the profile of specified profile
             // name
@@ -316,8 +339,23 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
             // this.powerManager.reboot(reason);
             reboot_value = OPTION_REBOOT; // 4 - Perform Reset/Reboot (Reboot Device)
             // Apply Settings selected by user
-            modifyProfile_XMLString(callbackContext);
+            modifyProfile_XMLString(callbackContext, action);
 
+            return true;
+        }
+        
+        if(action.equals("wwanTurnOn")) {
+            wwan_value = WWAN_ON; // activate wwan
+            // Apply Settings selected by user
+            modifyProfile_XMLString(callbackContext, action);
+            callbackContext.success("wwanTurnOn");
+            return true;
+        }
+        
+        if(action.equals("wwanTurnOff")) {
+            wwan_value = WWAN_OFF; // deactivate wwan
+            // Apply Settings selected by user
+            modifyProfile_XMLString(callbackContext, action);
             return true;
         }
 
