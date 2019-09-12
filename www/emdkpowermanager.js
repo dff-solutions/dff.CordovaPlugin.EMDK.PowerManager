@@ -20,4 +20,20 @@ self.reboot = function (success, error, args) {
     cordova.exec(success, error, feature, "reboot", [args]);
 };
 
+/**
+ * Activate wwan.
+ *
+ */
+self.wwanTurnOn = function (success, error, args) {
+    cordova.exec(success, error, feature, "wwanTurnOn", [args]);
+};
+
+/**
+ * Activate wwan.
+ *
+ */
+self.wwanTurnOff = function (success, error, args) {
+    cordova.exec(success, error, feature, "wwanTurnOff", [args]);
+};
+
 module.exports = self;
