@@ -48,7 +48,7 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
     // 6 -> Factory Reset
     // 7 -> Full Device Wipe
     // 8 -> OS Update
-    private int value = OPTION_DO_NOTHING;
+    private int reboot_value = OPTION_DO_NOTHING;
 
     // Contains the parm-error name (sub-feature that has error)
     private String errorName = "";
@@ -65,7 +65,7 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
 
     /**
      * Called after plugin construction and fields have been initialized. Prefer
-     * to use pluginInitialize instead since there is no value in having
+     * to use pluginInitialize instead since there is no reboot_value in having
      * parameters on the initialize() function.
      *
      * @param cordova
@@ -255,13 +255,13 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
             String[] modifyData = new String[1];
             // Modified XML input for Sleep and Reboot feature based on user
             // selected options of radio button
-            // value = 1 -> Sleep Mode
-            // value = 4 -> Reboot
+            // reboot_value = 1 -> Sleep Mode
+            // reboot_value = 4 -> Reboot
             modifyData[0] = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
                     + "<characteristic type=\"Profile\">"
                     + "<parm name=\"ProfileName\" value=\"PowerManagerProfile\"/>"
                     + "<characteristic type=\"PowerMgr\">"
-                    + "<parm name=\"ResetAction\" value=\"" + value + "\"/>"
+                    + "<parm name=\"ResetAction\" value=\"" + reboot_value + "\"/>"
                     + "</characteristic>"
                     + "</characteristic>";
 
@@ -314,7 +314,7 @@ public class EMDKPowerManagerPlugin extends CommonPlugin implements EMDKListener
         if (action.equals("reboot")) {
             // String reason = jsonArgs.getString(reasonArg);
             // this.powerManager.reboot(reason);
-            value = OPTION_REBOOT; // 4 - Perform Reset/Reboot (Reboot Device)
+            reboot_value = OPTION_REBOOT; // 4 - Perform Reset/Reboot (Reboot Device)
             // Apply Settings selected by user
             modifyProfile_XMLString(callbackContext);
 
