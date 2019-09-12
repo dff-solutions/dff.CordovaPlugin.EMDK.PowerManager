@@ -11,5 +11,9 @@
            <parm name="emdk_name" value="DffProfileManager"/>
            <parm name="ResetAction" value="0" />
         </characteristic>
+        <characteristic type="Wirelessmgr" version="4.2">
+            <parm name="emdk_name" value="DffProfileManager"/>
+            <parm name="WWANState" value="0" />
+        </characteristic>
     </characteristic>
 </wap-provisioningdoc>
