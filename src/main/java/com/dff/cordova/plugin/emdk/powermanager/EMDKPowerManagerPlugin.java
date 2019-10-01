@@ -7,6 +7,7 @@ import android.util.Xml;
 import com.dff.cordova.plugin.emdk.powermanager.actions.PluginAction;
 import com.dff.cordova.plugin.emdk.powermanager.configurations.ActionsManager;
 import com.dff.cordova.plugin.emdk.powermanager.dagger.DaggerManager;
+import com.dff.cordova.plugin.emdk.powermanager.helpers.EMDKHelper;
 import com.dff.cordova.plugin.emdk.powermanager.helpers.PermissionHelper;
 import com.dff.cordova.plugin.emdk.powermanager.log.Log;
 import com.symbol.emdk.EMDKManager;
@@ -33,7 +34,7 @@ import javax.inject.Inject;
  *
  * @author dff solutions
  */
-public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListener {
+public class EMDKPowerManagerPlugin extends CordovaPlugin {
     public static final String TAG = "EMDKPowerManagerPlugin";
     public static final int OPTION_DO_NOTHING = 0;
     public static final int OPTION_SLEEP_MODE = 1;
@@ -46,12 +47,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
     public static final int WWAN_ON = 1;
     public static final int WWAN_OFF = 2;
     private Context appContext;
-    // Assign the profile name used in EMDKConfig.xml
-    private String profileName = "PowerManagerProfile";
-    // Declare a variable to store ProfileManager object
-    private ProfileManager profileManager = null;
-    // Declare a variable to store EMDKManager object
-    private EMDKManager emdkManager = null;
+   
     // Initial Value of the Power Manager options to be executed in the
     // onOpened() method when the EMDK is ready. Default Value set in the wizard
     // is 0.
@@ -69,15 +65,6 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
     // 1 -> Turn on
     // 2 -> Turn off
     private int wwan_value = WWAN_DO_NOT_CHANGE;
-
-    // Contains the parm-error name (sub-feature that has error)
-    private String errorName = "";
-
-    // Contains the characteristic-error type (Root feature that has error)
-    private String errorType = "";
-
-    // contains the error description for parm or characteristic error.
-    private String errorDescription = "";
     
     private static final int PERMISSION_REQUEST_CODE = 0;
     public static final String[] PERMISSIONS = new String[] {
@@ -93,6 +80,9 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
     
     @Inject
     PermissionHelper mPermissionHelper;
+    
+    @Inject
+    EMDKHelper emdkHelper;
     
     @Inject
     Log log;
@@ -116,163 +106,19 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
     public void pluginInitialize() {
         super.pluginInitialize();
     }
-
-    @Override
-    public void onClosed() {
-        if (emdkManager != null) {
-            emdkManager.release();
-        }
-    }
-
+    
     @Override
     public void onDestroy() {
         super.onDestroy();
-        // Clean up the objects created by EMDK manager
-        if (emdkManager != null) {
-            emdkManager.release();
-        }
     }
-
+    
     @Override
-    public void onOpened(EMDKManager emdkManager) {
-        this.emdkManager = emdkManager;
-
-        // Get the ProfileManager object to process the profiles
-        profileManager = (ProfileManager) emdkManager
-                .getInstance(EMDKManager.FEATURE_TYPE.PROFILE);
-
-        if (profileManager != null) {
-            String[] modifyData = new String[1];
-
-            // Call processProfile with profile name and SET flag to create the
-            // profile. The modifyData can be null.
-            EMDKResults results = profileManager.processProfile(profileName,
-                    ProfileManager.PROFILE_FLAG.SET, modifyData);
-
-            try {
-                log.i(TAG, "EMDKResult: " + EMDKResultToJson(results));
-            } catch (JSONException e) {
-                log.e(TAG, e.getMessage(), e);
-            }
-
-            if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
-                // Method call to handle EMDKResult
-                handleEMDKResult(results);
-            } else {
-                log.e(TAG, "Failed to apply profile... "
-                        + profileName);
-            }
-        }
+    public void onStart() {
+        super.onStart();
+        emdkHelper.open();
     }
-
-    private JSONObject EMDKResultToJson(EMDKResults results) throws JSONException {
-        JSONObject jsonResult = new JSONObject();
-        String status = "";
-
-        switch (results.statusCode) {
-            case SUCCESS:
-                status = "SUCCESS";
-                break;
-            case FAILURE:
-                status = "FAILURE";
-                break;
-            case CHECK_XML:
-                status = "CHECK_XML";
-                break;
-            case EMDK_NOT_OPENED:
-                status = "EMDK_NOT_OPENED";
-                break;
-            case EMPTY_PROFILENAME:
-                status = "EMPTY_PROFILENAME";
-                break;
-            case NO_DATA_LISTENER:
-                status = "NO_DATA_LISTENER";
-                break;
-            case NULL_POINTER:
-                status = "NULL_POINTER";
-                break;
-            case PREVIOUS_REQUEST_IN_PROGRESS:
-                status = "PREVIOUS_REQUEST_IN_PROGRESS";
-                break;
-            case PROCESSING:
-                status = "PROCESSING";
-                break;
-            case UNKNOWN:
-                status = "UNKNOWN";
-                break;
-            default:
-                status = "UNKNOWN";
-                break;
-        }
-
-        jsonResult.put("status", status);
-        jsonResult.put("statusCode", results.statusCode);
-        jsonResult.put("statusString", results.getStatusString());
-        jsonResult.put("statusDocument", results.getStatusDocument());
-        jsonResult.put("extendedStatusMessage", results.getExtendedStatusMessage());
-        jsonResult.put("successFeaturesCount", results.getSuccessFeaturesCount());
-        jsonResult.put("totalFeaturesCount", results.getTotalFeaturesCount());
-
-        return jsonResult;
-    }
-
-    // Method to handle EMDKResult by extracting response and parsing it
-    public void handleEMDKResult(EMDKResults results) {
-        // Get XML response as a String
-        String statusXMLResponse = results.getStatusString();
-
-        try {
-            // Create instance of XML Pull Parser to parse the response
-            XmlPullParser parser = Xml.newPullParser();
-            // Provide the string response to the String Reader that reads
-            // for the parser
-            parser.setInput(new StringReader(statusXMLResponse));
-            // Call method to parse the response
-            parseXML(parser);
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-            log.e(TAG, e.toString());
-        }
-
-        // Method call to display results in a dialog
-        log.e(TAG, "Name: " + errorName + "; Type: "
-                + errorType + "; desc: " + errorDescription);
-    }
-
-    // Method to parse the XML response using XML Pull Parser
-    public void parseXML(XmlPullParser myParser) {
-        int event;
-        try {
-            event = myParser.getEventType();
-            while (event != XmlPullParser.END_DOCUMENT) {
-                String name = myParser.getName();
-                switch (event) {
-                    case XmlPullParser.START_TAG:
-                        // Get Status, error name and description in case of
-                        // parm-error
-                        if (name.equals("parm-error")) {
-                            errorName = myParser.getAttributeValue(null, "name");
-                            errorDescription = myParser.getAttributeValue(null,
-                                    "desc");
-
-                            // Get Status, error type and description in case of
-                            // parm-error
-                        } else if (name.equals("characteristic-error")) {
-                            errorType = myParser.getAttributeValue(null, "type");
-                            errorDescription = myParser.getAttributeValue(null,
-                                    "desc");
-                        }
-                        break;
-                    case XmlPullParser.END_TAG:
-                        break;
-                }
-                event = myParser.next();
-            }
-        } catch (Exception e) {
-            log.e(TAG, e.getMessage(), e);
-        }
-    }
-
+    
+    /*
     // Method that applies the modified settings to the EMDK Profile based on
     // user selected options of Power Manager feature.
     private void modifyProfile_XMLString(CallbackContext callbackContext, String action) throws JSONException {
@@ -337,6 +183,7 @@ public class EMDKPowerManagerPlugin extends CordovaPlugin implements EMDKListene
         }
     }
 
+     */
     /**
      * Executes the request.
      * <p>
