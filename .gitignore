@@ -1,2 +1,9 @@
 /bin
 .classpath
+.gradle/
+.idea/
+build/
+node_modules/
+gradle/
+local.properties
+
