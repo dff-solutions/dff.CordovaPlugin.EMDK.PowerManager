@@ -20,16 +20,6 @@ public class Reboot extends PluginAction {
     public static final String ACTION = "reboot";
     private String profileName = "PowerManagerProfile";
     private ProfileManagerHelper profileManager;
-    private EMDKManager emdkManager = null;
-    
-    // Contains the parm-error name (sub-feature that has error)
-    private String errorName = "";
-    
-    // Contains the characteristic-error type (Root feature that has error)
-    private String errorType = "";
-    
-    // contains the error description for parm or characteristic error.
-    private String errorDescription = "";
     
     @Inject
     public Reboot(ProfileManagerHelper profileManager){
