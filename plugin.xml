@@ -45,8 +45,11 @@
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/modules/AppModule.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/modules"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/modules/PluginModule.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/modules"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/exceptions/UnexpectedExceptionHandler.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/exceptions"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/helpers/EMDKHelper.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/helpers"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/helpers/PackageManagerHelper.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/helpers"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/helpers/PermissionHelper.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/helpers"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/helpers/ProfileManagerHelper.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/helpers"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/json/JsonEMDKResult.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/json"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/json/JsonStacktrace.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/json"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/json/JsonThrowable.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/json"/>
     <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/log/CallbackContextAppender.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/log"/>
