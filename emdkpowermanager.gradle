@@ -1,3 +1,0 @@
-    dependencies {  
-        provided files('./systemlibs/com.symbol.emdk.jar')  
-    }  
