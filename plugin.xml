@@ -1,46 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<plugin
-    xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    name="EMDKPowerManager"
-    id="dff-cordova-plugin-emdk-powermanager"
-    spec="1.0.1"
-    version="1.0.1">
-
-    <name>EMDKPowerManager</name>
-    <description>EMDKPowerManager Plugin</description>
-    <author>dff solutions</author>
-    <keywords>phonegap,cordova,EMDK,PowerManager,dff</keywords>
-
-    <js-module src="www/emdkpowermanager.js" name="emdkpowermanager">
-        <clobbers target="EMDKPowerManager" />
-    </js-module>
-
-    <dependency id="dff-cordova-plugin-common" url="https://github.com/dff-solutions/dff.CordovaPlugin.Common.git" />
-
-    <!-- android -->
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="EMDKPowerManager">
-                <param name="android-package" value="com.dff.cordova.plugin.emdk.powermanager.EMDKPowerManagerPlugin"/>
-                <param name="onload" value="true" />
-            </feature>
-        </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="com.symbol.emdk.permission.EMDK"/>
-        </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <uses-library android:name="com.symbol.emdk"/>
-        </config-file>
-
-        <framework src="emdkpowermanager.gradle" custom="true" type="gradleReference" />
-        <resource-file src="assets/EMDKConfig.xml" target="assets/EMDKConfig.xml" />
-		<source-file src="libs/com.symbol.emdk.jar" target-dir="systemlibs" />
-        <source-file src="src/android/com/dff/cordova/plugin/emdk/powermanager/EMDKPowerManagerPlugin.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager" />
-
-
-
-     </platform>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" name="EMDKPowerManager" id="dff-cordova-plugin-emdk-powermanager" spec="1.0.1" version="1.0.1">
+  <name>EMDKPowerManager</name>
+  <description>EMDKPowerManager Plugin</description>
+  <author>dff solutions</author>
+  <keywords>phonegap,cordova,EMDK,PowerManager,dff</keywords>
+  <js-module src="www/emdkpowermanager.js" name="emdkpowermanager">
+    <clobbers target="EMDKPowerManager"/>
+  </js-module>
+  <dependency id="dff-cordova-plugin-common" url="https://github.com/dff-solutions/dff.CordovaPlugin.Common.git"/>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="EMDKPowerManager">
+        <param name="android-package" value="com.dff.cordova.plugin.emdk.powermanager.EMDKPowerManagerPlugin"/>
+        <param name="onload" value="true"/>
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="com.symbol.emdk.permission.EMDK"/>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <service android:name="com.dff.cordova.plugin.emdk.powermanager.services.ActionHandlerService"/>
+      <service android:name="com.symbol.mxmf.csp.stats.MxStatsCSPService"/>
+      <service android:name="MxStatsCSPService"/>
+      <uses-library android:name="com.symbol.emdk"/>
+    </config-file>
+    <framework src="build-emdkpowermanager-plugin.gradle" custom="true" type="gradleReference"/>
+    <resource-file src="assets/EMDKConfig.xml" target="assets/EMDKConfig.xml"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/EMDKPowerManagerPlugin.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/actions/PluginAction.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/actions"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/actions/Reboot.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/actions"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/configurations/ActionHandler.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/configurations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/configurations/ActionHandlerThread.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/configurations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/configurations/ActionsManager.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/configurations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/DaggerManager.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations/ActionHandlerScope.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations/ActionHandlerServiceIntent.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations/ApplicationContext.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations/CordovaActivity.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations/PluginComponentScope.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/annotations"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/components/ActionHandlerServiceComponent.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/components"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/components/AppComponent.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/components"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/components/PluginComponent.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/components"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/modules/ActionHandlerServiceModule.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/modules"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/modules/AppModule.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/modules"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/dagger/modules/PluginModule.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/dagger/modules"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/exceptions/UnexpectedExceptionHandler.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/exceptions"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/helpers/PackageManagerHelper.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/helpers"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/helpers/PermissionHelper.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/helpers"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/json/JsonStacktrace.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/json"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/json/JsonThrowable.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/json"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/log/CallbackContextAppender.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/log"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/log/Log.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/log"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/services/ActionHandlerService.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/services"/>
+    <source-file src="src/main/java/com/dff/cordova/plugin/emdk/powermanager/services/ActionHandlerServiceBinder.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager/services"/>
+    <source-file src="libs/com.symbol.emdk.jar" target-dir="systemlibs"/>
+  </platform>
 </plugin>

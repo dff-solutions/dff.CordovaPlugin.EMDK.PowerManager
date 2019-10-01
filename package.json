@@ -7,6 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
+    "plugin-xml-update": "node scripts/update-plugin-xml.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/dff-solutions/dff.CordovaPlugin.EMDK.PowerManager/issues"
   },
-  "homepage": "https://github.com/dff-solutions/dff.CordovaPlugin.EMDK.PowerManager.git"
+  "homepage": "https://github.com/dff-solutions/dff.CordovaPlugin.EMDK.PowerManager.git",
+  "devDependencies": {
+    "xml2js": "0.4.19"
+  }
 }
