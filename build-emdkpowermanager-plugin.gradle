@@ -1,0 +1,36 @@
+ext {
+    daggerVersion = "2.21"
+}
+
+android {
+    dependencies {
+        compileOnly "com.symbol:emdk:6.9.16"
+
+        implementation (
+
+                "com.google.dagger:dagger:$daggerVersion",
+                "com.google.dagger:dagger-android:$daggerVersion",
+                "com.google.dagger:dagger-android-support:$daggerVersion",
+
+                'org.greenrobot:eventbus:3.1.1',
+                'com.fasterxml.jackson.core:jackson-databind:2.9.8',
+
+                "org.slf4j:slf4j-api:1.7.21",
+                "com.github.tony19:logback-android-core:1.1.1-6",
+
+                'com.sun.mail:android-mail:1.5.5',
+                'com.sun.mail:android-activation:1.5.5'
+        )
+
+        implementation("com.github.tony19:logback-android-classic:1.1.1-6") {
+            // workaround issue #73
+            exclude group: 'com.google.android', module: 'android'
+        }
+
+        annotationProcessor(
+                "com.google.dagger:dagger-compiler:$daggerVersion",
+                "com.google.dagger:dagger-android-processor:$daggerVersion"
+        )
+    }
+}
+

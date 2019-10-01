@@ -1,0 +1,122 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.dff.cordova.plugin.myemdkapp"
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+    }
+}
+
+apply from: "build-emdkpowermanager-plugin.gradle"
+
+ext {
+    junitJupiterVersion = "5.4.0"
+    powermockVersion = "2.0.0"
+    mockitoVersion = "2.25.1"
+}
+
+dependencies {
+    implementation (
+            'org.apache.cordova:framework:7.1.2',
+            fileTree(excludes: ['com.symbol.emdk.jar'], dir: 'libs', include: ['*.jar'])
+    )
+
+    testAnnotationProcessor (
+            "com.google.dagger:dagger-compiler:$daggerVersion",
+            "com.google.dagger:dagger-android-processor:$daggerVersion"
+    )
+
+    testCompileOnly(
+            'junit:junit:4.12',
+            fileTree(include: ['com.symbol.emdk.jar'], dir: 'C:/Users/sknabe/AppData/Local/Android/Sdk/add-ons/addon-symbol_emdk-symbol-22/libs')
+    )
+
+    testImplementation(
+            // zebra
+            "com.symbol:emdk:6.9.16",
+
+            'org.apache.cordova:framework:7.1.2',
+            'junit:junit:4.12',
+            "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion",
+            "org.mockito:mockito-core:$mockitoVersion",
+            "org.mockito:mockito-junit-jupiter:$mockitoVersion",
+            'org.robolectric:robolectric:4.2',
+
+            "org.powermock:powermock-module-junit4:$powermockVersion",
+            "org.powermock:powermock-module-junit4-rule:$powermockVersion",
+            "org.powermock:powermock-api-mockito2:$powermockVersion",
+            "org.powermock:powermock-classloading-xstream:$powermockVersion",
+
+            "com.google.dagger:dagger:$daggerVersion",
+            "com.google.dagger:dagger-android:$daggerVersion",
+            "com.google.dagger:dagger-android-support:$daggerVersion",
+    )
+    testRuntimeOnly(
+            "org.junit.platform:junit-platform-launcher:1.4.0",
+            "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion",
+            "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
+    )
+
+    androidTestAnnotationProcessor (
+            "com.google.dagger:dagger-compiler:$daggerVersion",
+            "com.google.dagger:dagger-android-processor:$daggerVersion"
+    )
+
+    androidTestImplementation (
+            // Core library
+            'androidx.test:core:1.1.0',
+
+            // AndroidJUnitRunner and JUnit Rules
+            'androidx.test:runner:1.1.1',
+            'androidx.test:rules:1.1.1',
+
+            // Assertions
+            'androidx.test.ext:junit:1.1.0',
+
+            'org.apache.cordova:framework:7.1.2',
+            "org.mockito:mockito-android:$mockitoVersion",
+
+            "com.google.dagger:dagger:$daggerVersion",
+            "com.google.dagger:dagger-android:$daggerVersion",
+            "com.google.dagger:dagger-android-support:$daggerVersion",
+    )
+}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+
+        classpath 'com.android.tools.build:gradle:3.5.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
