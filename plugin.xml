@@ -37,7 +37,7 @@
 
         <framework src="emdkpowermanager.gradle" custom="true" type="gradleReference" />
         <resource-file src="assets/EMDKConfig.xml" target="assets/EMDKConfig.xml" />
-		<source-file src="libs/com.symbol.emdk.jar" target-dir="systemlibs" />
+		<source-file src="libs/com.symbol.emdk.jar" target-dir="libs" />
         <source-file src="src/android/com/dff/cordova/plugin/emdk/powermanager/EMDKPowerManagerPlugin.java" target-dir="src/com/dff/cordova/plugin/emdk/powermanager" />
 
 
